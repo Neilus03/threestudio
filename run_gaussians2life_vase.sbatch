@@ -7,8 +7,8 @@
 #SBATCH --time=120:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=neil.de@tum.de
-#SBATCH --output=/threestudio/slurm/logs/slurm-%j.out
-#SBATCH --error=/threestudio/slurm/logs/slurm-%j.out
+#SBATCH --output=~/storage/user/projects/threestudio/slurm/logs/gardenvase/slurm-%j.out
+#SBATCH --error=~/storage/user/projects/threestudio/slurm/logs/gardenvase/slurm-%j.out
 #SBATCH --constraint="GPU_CC:8.9"
 
 # ---------- Conda environment ----------
@@ -22,7 +22,7 @@ echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
 # Default GPU index if $GPU isn’t set
 GPU=${GPU:-0}
 
-PROMPT="The bear opens its mouth."
+PROMPT="Flowers from the vase start flying due to strong wind"
 # Slugify: spaces → _, drop non-alphanum/_ 
 TAG=$(echo "$PROMPT" \
       | tr '[:upper:]' '[:lower:]' \
@@ -37,9 +37,9 @@ pwd; hostname; date
 
 # Run
 srun python launch.py \
-     --config custom/gaussians2life/configs/bear.yaml \
+     --config custom/gaussians2life/configs/gardenvase.yaml \
      --train \
      --gpu "${GPU:-0}" \
      system.prompt_processor.prompt="$PROMPT" \
-     tag="$TAG" \
-     data.fixed_view=True
+     tag="$TAG" #\
+     #data.fixed_view=True
