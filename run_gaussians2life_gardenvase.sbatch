@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name="gaussiuanss2life_bear_run1"
+#SBATCH --job-name="gaussiuanss2life_gardenvase_run1"
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=2
 #SBATCH --gres=gpu:1,VRAM:24G
@@ -7,8 +7,8 @@
 #SBATCH --time=120:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=neil.de@tum.de
-#SBATCH --output=~/storage/user/projects/threestudio-1/slurm/logs/bear/slurm-%j.out
-#SBATCH --error=~/storage/user/projects/threestudio-1/slurm/logs/bear/slurm-%j.out
+#SBATCH --output=~/storage/user/projects/threestudio-1/slurm/logs/gardenvase/slurm-%j.out
+#SBATCH --error=~/storage/user/projects/threestudio-1/slurm/logs/gardenvase/slurm-%j.out
 #SBATCH --constraint="GPU_CC:8.9"
 
 # ---------- Conda environment ----------
@@ -22,7 +22,7 @@ echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
 # Default GPU index if $GPU isn’t set
 GPU=${GPU:-0}
 
-PROMPT="The statue bear lifts both frontpaws and falls down."
+PROMPT="Vase flies up against gravity laws, static camera"
 # Slugify: spaces → _, drop non-alphanum/_ 
 TAG=$(echo "$PROMPT" \
       | tr '[:upper:]' '[:lower:]' \
@@ -37,7 +37,7 @@ pwd; hostname; date
 
 # Run
 srun python launch.py \
-     --config custom/gaussians2life/configs/bear.yaml \
+     --config custom/gaussians2life/configs/gardenvase.yaml \
      --train \
      --gpu "${GPU:-0}" \
      system.prompt_processor.prompt="$PROMPT" \
