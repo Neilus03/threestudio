@@ -6,7 +6,7 @@
 #SBATCH --mem=160GB
 #SBATCH --time=120:00:00
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=your.email@example.com
+#SBATCH --mail-user=neil.de@tum.de
 #SBATCH --output=/home/stud/deln/storage/user/projects/threestudio-1/slurm/logs/bear_ltx/slurm-%j.out
 #SBATCH --error=/home/stud/deln/storage/user/projects/threestudio-1/slurm/logs/bear_ltx/slurm-%j.err
 #SBATCH --constraint="GPU_CC:8.9"
