@@ -180,6 +180,7 @@ pyrightconfig.json
 .vscode/
 .threestudio_cache/
 outputs/
+outputs_ltx/
 outputs-gradio/
 
 # pretrained model weights
