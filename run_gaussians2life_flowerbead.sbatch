@@ -7,8 +7,8 @@
 #SBATCH --time=120:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=neil.de@tum.de
-#SBATCH --output=~/storage/user/projects/threestudio-1/slurm/logs/flowerbed/slurm-%j.out
-#SBATCH --error=~/storage/user/projects/threestudio-1/slurm/logs/flowerbed/slurm-%j.out
+#SBATCH --output=/storage/user/deln/projects/threestudio-1/slurm/logs/flowerbed/slurm-%j.out
+#SBATCH --error=/storage/user/deln/projects/threestudio-1/slurm/logs/flowerbed/slurm-%j.err
 #SBATCH --constraint="GPU_CC:8.9"
 
 # ---------- Conda environment ----------
@@ -22,7 +22,7 @@ echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
 # Default GPU index if $GPU isn’t set
 GPU=${GPU:-0}
 
-PROMPT="flowers start flying up."
+PROMPT="flowers moving in the wind"
 # Slugify: spaces → _, drop non-alphanum/_ 
 TAG=$(echo "$PROMPT" \
       | tr '[:upper:]' '[:lower:]' \
