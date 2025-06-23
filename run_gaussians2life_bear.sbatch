@@ -22,7 +22,7 @@ echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
 # Default GPU index if $GPU isn’t set
 GPU=${GPU:-0}
 
-PROMPT="bear statue turns its head"
+PROMPT="bear statue lift its left paw"
 # Slugify: spaces → _, drop non-alphanum/_ 
 TAG=$(echo "$PROMPT" \
       | tr '[:upper:]' '[:lower:]' \
