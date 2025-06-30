@@ -25,7 +25,7 @@ echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
 
 GPU=${GPU:-0}
 
-PROMPT="The lego bulldozer drifts in circles generating a vortex of smoke and dust."
+PROMPT="toy bulldozer goes forward"
 TAG_BASE=$(echo "$PROMPT" | tr '[:upper:]' '[:lower:]' | tr ' ' '_' | tr -cd '[:alnum:]_')
 TAG="ltx_${TAG_BASE}"
 
